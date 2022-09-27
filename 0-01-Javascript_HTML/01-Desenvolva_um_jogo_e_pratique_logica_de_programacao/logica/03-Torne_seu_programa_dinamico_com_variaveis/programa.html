@@ -1,0 +1,38 @@
+<meta charset="UTF-8">
+
+<script>
+
+    var ano = new Date().getFullYear();
+
+    document.write("Ano atual: " + ano + ". <br>");
+
+    var nome1 = "Flávio";
+    var dtNasc1 = 1977;
+    var idade1 = ano - dtNasc1;
+    var nome2 = "Joaquim";
+    var dtNasc2 = 1996;
+    var idade2 = ano - dtNasc2;
+
+    ano--;
+    document.write("Novo valor para ano: " + ano + ". <br>");
+    var nome3 = "Barney";
+    var dtNasc3 = 1976;
+    var idade3 = ano - dtNasc3;
+
+    document.write("<br>");
+    document.write(nome1 + ":<br>Nasceu em " + dtNasc1 + " então ele tem " + idade1 + " anos");
+    document.write("<br>");
+
+    document.write("<br>");
+    document.write(nome2 + ":<br>Nasceu em " + dtNasc2 + " então ele tem " + idade2 + " anos");
+    document.write("<br>");
+
+    document.write("<br>");
+    document.write(nome3 + ":<br>Nasceu em " + dtNasc3 + " então ele tem " + idade3 + " anos");
+    document.write("<br><br>");
+
+    var mediaIdades = (idade1 + idade2 + idade3) / 3;
+    document.write("A média das idades de " + nome1 + ", " + nome2 + " e " + nome3 + " é " + Math.round(mediaIdades));
+
+
+</script>
