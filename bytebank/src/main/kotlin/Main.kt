@@ -25,8 +25,6 @@ fun main() {
     deposita(contaThiago, 55.0)
     deposita(contaFran, 26.0)
 
-
-
 }
 
 fun deposita(conta: Conta, valor: Double) {
