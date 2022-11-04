@@ -3,13 +3,34 @@
  */
 package bytebank
 
-class App {
-    val greeting: String
-        get() {
-            return "Hello World!"
-        }
-}
 
 fun main() {
-    println(App().greeting)
+    println("Bem vindo ao Bytebank\n")
+
+    val titular = "Thiago Macedo"
+    val numeroConta = 1000
+    var saldo = 0.0
+
+    saldo = 100 + 2.0
+    saldo += 200
+
+    println("Titular: $titular")
+    println("Número da conta: $numeroConta")
+    println("Saldo: R$ $saldo")
+
+    if (saldo > 0.0) {
+        println("conta é positiva")
+    } else if (saldo == 0.0) {
+        println("conta é neutra")
+    } else {
+        println("conta é negativa")
+    }
+
+    when {
+        saldo > 0.0 -> println("conta é positiva.")
+        saldo == 0.0 -> println("conta é neutra.")
+        else -> println("conta é negativa.")
+    }
+
+
 }
