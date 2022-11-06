@@ -20,16 +20,17 @@ fun main() {
     println("Numero da conta: ${contaFran.numero}")
     println("Saldo: R$ ${contaFran.saldo}")
 
-
+    println()
     contaThiago.deposita(55.0)
     contaFran.deposita(26.0)
 
     println()
-    println()
     contaThiago.saca(75.0)
     contaFran.saca(200.0)
 
-    //keepsyms=1 alcid=1 amfi_get_out_of_my_way=0x1
+    println()
+    contaThiago.transfere(170.0, contaFran)
+
 
 }
 
@@ -57,6 +58,17 @@ class Conta {
             imprimeSaldo()
         } else {
             println("Saldo R$ $saldo, é insuficiente para sacar R$ $valor")
+        }
+    }
+
+    fun transfere(valor: Double, destino: Conta) {
+        println("Transferindo R$ $valor de: $titular para: ${destino.titular}")
+        if (saldo >= valor) {
+            saldo -= valor
+            destino.saldo += valor
+            imprimeSaldo()
+        } else {
+            println("Saldo R$ $saldo, é insuficiente para transferir R$ $valor")
         }
     }
 
