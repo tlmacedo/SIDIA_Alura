@@ -21,15 +21,16 @@ fun main() {
     println("Saldo: R$ ${contaFran.saldo}")
 
 
-    println("Depositando na conta do Thiago")
-    deposita(contaThiago, 55.0)
-    deposita(contaFran, 26.0)
+    contaThiago.deposita(55.0)
+    contaFran.deposita(26.0)
 
-}
+    println()
+    println()
+    contaThiago.saca(75.0)
+    contaFran.saca(200.0)
 
-fun deposita(conta: Conta, valor: Double) {
-    conta.saldo += valor
-    println("Saldo atualizada do(a) ${conta.titular} é de R$ ${conta.saldo}")
+    //keepsyms=1 alcid=1 amfi_get_out_of_my_way=0x1
+
 }
 
 class Conta {
@@ -37,6 +38,27 @@ class Conta {
     var titular = ""
     var numero = 0
     var saldo = 0.0
+
+
+    fun imprimeSaldo() {
+        println("Saldo atualizada do(a) $titular é de R$ $saldo")
+    }
+
+    fun deposita(valor: Double) {
+        println("Depositando R$ $valor na conta do $titular.")
+        saldo += valor
+        imprimeSaldo()
+    }
+
+    fun saca(valor: Double) {
+        println("Sacando R$ $valor na conta do $titular.")
+        if (saldo >= valor) {
+            saldo -= valor
+            imprimeSaldo()
+        } else {
+            println("Saldo R$ $saldo, é insuficiente para sacar R$ $valor")
+        }
+    }
 
 }
 
@@ -77,3 +99,4 @@ fun testaCopiasEReferencias() {
 //
 //
 //    }
+
