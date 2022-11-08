@@ -1,26 +1,22 @@
 import java.util.DoubleSummaryStatistics
 
 fun main() {
+
     println("Bem vindo ao Bytebank\n")
 
-    val contaThiago = Conta()
-    contaThiago.setTitular("Thiago Macedo")
-    contaThiago.setNumero(1000)
-    contaThiago.setSaldo(200.0)
+    val contaThiago = Conta("Thiago Macedo", 1000)
+    contaThiago.deposita(0.0)
 
-    val contaFran = Conta()
-    contaFran.setTitular("Fran")
-    contaFran.setNumero(1001)
-    contaFran.setSaldo(300.0)
+    val contaFran = Conta("Fran", 1001)
+    contaFran.deposita(300.0)
 
+    println("Titular: ${contaThiago.titular}")
+    println("Numero da conta: ${contaThiago.numero}")
+    println("Saldo: R$ ${contaThiago.saldo}")
 
-    println("Titular: ${contaThiago.getTitular()}")
-    println("Numero da conta: ${contaThiago.getNumero()}")
-    println("Saldo: R$ ${contaThiago.getSaldo()}")
-
-    println("Titular: ${contaFran.getTitular()}")
-    println("Numero da conta: ${contaFran.getNumero()}")
-    println("Saldo: R$ ${contaFran.getSaldo()}")
+    println("Titular: ${contaFran.titular}")
+    println("Numero da conta: ${contaFran.numero}")
+    println("Saldo: R$ ${contaFran.saldo}")
 
     println()
     contaThiago.deposita(55.0)
@@ -33,14 +29,22 @@ fun main() {
     println()
     contaThiago.transfere(170.0, contaFran)
 
-
 }
 
 class Conta {
 
-    private var titular: String = ""
-    private var numero: Int = 0
-    private var saldo: Double = 0.0
+    var titular = ""
+        private set
+    var numero = 0
+        private set
+    var saldo = 0.0
+        private set
+
+    constructor(titular: String, numero: Int) {
+        this.titular = titular
+        this.numero = numero
+    }
+
 
     fun imprimeSaldo() {
         println("Saldo atualizada do(a) $titular é de R$ $saldo")
@@ -64,9 +68,7 @@ class Conta {
             println("Saldo R$ $saldo, é insuficiente para sacar R$ $valor")
         }
         return false
-
     }
-
 
     fun transfere(valor: Double, destino: Conta) {
         if (!validaValor(valor)) return
@@ -83,31 +85,31 @@ class Conta {
         return (valor > 0.0)
     }
 
-    fun getTitular(): String {
-        return titular
-    }
-
-    fun setTitular(nome: String) {
-        if (nome.isEmpty() || nome.equals("")) return
-        titular = nome
-    }
-
-    fun getNumero(): Int {
-        return numero
-    }
-
-    fun setNumero(num: Int) {
-        if (num <= 0) return
-        numero = num
-    }
-
-    fun getSaldo(): Double {
-        return saldo
-    }
-
-    fun setSaldo(valor: Double) {
-        saldo = valor
-    }
+//    fun getTitular(): String {
+//        return titular
+//    }
+//
+//    fun setTitular(nome: String) {
+//        if (nome.isEmpty() || nome.equals("")) return
+//        titular = nome
+//    }
+//
+//    fun getNumero(): Int {
+//        return numero
+//    }
+//
+//    fun setNumero(num: Int) {
+//        if (num <= 0) return
+//        numero = num
+//    }
+//
+//    fun getSaldo(): Double {
+//        return saldo
+//    }
+//
+//    fun setSaldo(valor: Double) {
+//        saldo = valor
+//    }
 
 }
 
