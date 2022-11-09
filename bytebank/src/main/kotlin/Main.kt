@@ -29,23 +29,15 @@ fun main() {
     println()
     contaThiago.transfere(170.0, contaFran)
 
-
 }
 
-class Conta {
+class Conta(
+    var titular: String,
+    var numero: Int
+) {
 
-    var titular = ""
-        private set
-    var numero = 0
-        private set
     var saldo = 0.0
         private set
-
-    constructor(titular: String, numero: Int) {
-        this.titular = titular
-        this.numero = numero
-    }
-
 
     fun imprimeSaldo() {
         println("Saldo atualizada do(a) $titular é de R$ $saldo")
