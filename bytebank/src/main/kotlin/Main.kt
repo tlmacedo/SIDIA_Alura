@@ -54,5 +54,11 @@ fun main() {
     }
 
     //testaComportamentoConta()
+    val calculadora = CalculadoraBonificacao()
+    calculadora.registra(thiago)
+    calculadora.registra(fran)
+    calculadora.registra(gui)
+
+    println("total de bonificação: R$${calculadora.total}")
 
 }
