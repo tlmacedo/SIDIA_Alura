@@ -1,10 +1,10 @@
-open class Conta(
+abstract class Conta(
     var titular: String,
     val numero: Int
 ) {
 
     var saldo = 0.0
-        private set
+        protected set
 
     fun imprimeSaldo() {
         println("Saldo atualizada do(a) $titular é de R$ $saldo")
@@ -17,18 +17,7 @@ open class Conta(
         imprimeSaldo()
     }
 
-    open fun saca(valor: Double): Boolean {
-        if (!validaValor(valor)) return false
-        println("Sacando R$ $valor na conta do $titular.")
-        if (saldo >= valor) {
-            saldo -= valor
-            imprimeSaldo()
-            return true
-        } else {
-            println("Saldo R$ $saldo, é insuficiente para sacar R$ $valor")
-        }
-        return false
-    }
+    abstract fun saca(valor: Double): Boolean
 
     fun transfere(valor: Double, destino: Conta) {
         if (!validaValor(valor)) return
