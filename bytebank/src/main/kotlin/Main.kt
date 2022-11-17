@@ -53,11 +53,25 @@ fun main() {
         println("não foi possivel autenticar")
     }
 
+
+    val maria = Analista(
+        nome = "Maria",
+        cpf = "444.444.444-44",
+        salario = 3000.0,
+    )
+    println()
+    println("nome: ${maria.nome}")
+    println("cpf: ${maria.cpf}")
+    println("salario: R$${maria.salario}")
+    println("bonificação: R$${maria.getBonificacao()}")
+
+
     //testaComportamentoConta()
     val calculadora = CalculadoraBonificacao()
     calculadora.registra(thiago)
     calculadora.registra(fran)
     calculadora.registra(gui)
+    calculadora.registra(maria)
 
     println("total de bonificação: R$${calculadora.total}")
 
