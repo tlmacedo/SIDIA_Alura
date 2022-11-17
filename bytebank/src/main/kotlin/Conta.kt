@@ -1,4 +1,4 @@
-class Conta(
+open class Conta(
     var titular: String,
     val numero: Int
 ) {
@@ -17,7 +17,7 @@ class Conta(
         imprimeSaldo()
     }
 
-    fun saca(valor: Double): Boolean {
+    open fun saca(valor: Double): Boolean {
         if (!validaValor(valor)) return false
         println("Sacando R$ $valor na conta do $titular.")
         if (saldo >= valor) {
