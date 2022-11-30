@@ -1,7 +1,9 @@
 fun main() {
 
-    println("Bem vindo ao Bytebank\n")
+    testaAutenticacao()
+}
 
+fun testaAutenticacao() {
     val gerente = Gerente(
         "Fran",
         "222.222.222-22",
@@ -9,7 +11,7 @@ fun main() {
         2222
     )
 
-    val  diretor = Diretor(
+    val diretor = Diretor(
         "Thiago",
         "111.111.111-11",
         10000.0,
